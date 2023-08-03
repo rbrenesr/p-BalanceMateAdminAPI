@@ -7,8 +7,7 @@ const { autenticar, renovarToken, obtenerEmpresasUsuario } = require("../control
 
 autenticarRouter.post('/',validateInputDataLogin, autenticar);
 autenticarRouter.use(validarJWT);
-// autenticarRouter.get('/renovarToken', renovarToken);
-autenticarRouter.get('/renovarToken/:id?', renovarToken);
+autenticarRouter.get('/renovarToken', renovarToken);
 autenticarRouter.get('/empresasUsuario', obtenerEmpresasUsuario);
 
 module.exports = { autenticarRouter };

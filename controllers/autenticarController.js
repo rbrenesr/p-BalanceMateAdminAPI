@@ -57,11 +57,7 @@ const renovarToken = async (req = request, res = response) => {
   try {
 
     const { id, name, db } = req;    
-    const dbNew = req.params.id;
-    let dbToSend = (dbNew) ? dbNew : db;
-
-  console.log(dbToSend)
-
+    
     const usuario = await dbManager.executeQuery(`SELECT 1 FROM Usuario WHERE id = ${id}`);
     
     if (usuario.length != 1) {
@@ -71,7 +67,7 @@ const renovarToken = async (req = request, res = response) => {
       });
     }
 
-    const token = await generarJWT(id, name, dbToSend);
+    const token = await generarJWT(id, name, db);
 
     res.status(200).json({
       ok: true,
