@@ -1,0 +1,850 @@
+{
+	"info": {
+		"_postman_id": "ebf30104-22fa-4303-b653-858de30cf5af",
+		"name": "BalanceMate",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9674155"
+	},
+	"item": [
+		{
+			"name": "autenticar",
+			"item": [
+				{
+					"name": "autenticar",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"x-token\", data.token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"correo\":\"rbrenesr@gmail.com\",\r\n    \"contrasena\":\"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/autenticar",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"autenticar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autenticar/renovarToken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);\r",
+									"postman.setGlobalVariable(\"x-token\", data.token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/autenticar/renovarToken/120B-1",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"autenticar",
+								"renovarToken",
+								"120B-1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "autenticar/empresasUsuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/autenticar/empresasUsuario",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"autenticar",
+								"empresasUsuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"correo\":\"rbrenesr2@gmail.com\",\r\n    \"contrasena\":\"123456\",\r\n    \"nombre\":\"Juan Perez S\",\r\n    \"direccion\":\"Perez Zeledon\",\r\n    \"telefono\":\"+506 8329 0634\",\r\n    \"estado\":1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/usuario/",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"usuario",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "empresa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\":\"1\",  \r\n    \"nombre\":\"BalanceMate S.A.\",\r\n    \"correo\":\"gerencia@balance.com\",\r\n    \"telefonoUno\":\"+506 8329 0634\",\r\n    \"telefonoDos\":\"+506 85050100\",\r\n    \"paginaWeb\":\"https://www.balancemate.com\",\r\n    \"direccion\":\"SJ\",    \r\n    \"repNombre\":\"Rafael Brenes\",\r\n    \"repCedula\":\"304140227 \",\r\n    \"repTelefono\":\"+506 8329 0634\",\r\n    \"repCorreo\":\"rbrenesr@gmail.com\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/empresa",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"empresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empresa",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cedula\":\"304140227\",        \r\n    \"nombre\":\"Balance Mate S.A.\",\r\n    \"correo\":\"balanca@balance.com\",\r\n    \"telefonoUno\":\"+506 8329 0634\",\r\n    \"telefonoDos\":\"+506 85050100\",\r\n    \"paginaWeb\":\"https://www.balancemate.com\",\r\n    \"direccion\":\"SJ\",    \r\n    \"repNombre\":\"Rafael Brenes\",\r\n    \"repCedula\":\"304140227 \",\r\n    \"repTelefono\":\"+506 8329 0634\",\r\n    \"repCorreo\":\"rbrenesr@gmail.com\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/empresa/74",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"empresa",
+								"74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "empresa",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/empresa/",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"empresa",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CtaContable",
+			"item": [
+				{
+					"name": "ctaContable",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"1101000\",  \r\n    \"tipo\":\"ACT\",\r\n    \"descripcion\":\"Nueva cuenta de activos\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/ctaContable",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ctaContable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ctaContable",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"tipo\":\"ACT\",\r\n    \"descripcion\":\"Nueva cuenta de activos\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/ctaContable/1101000",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ctaContable",
+								"1101000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ctaContable",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/ctaContable/id/1101",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ctaContable",
+								"id",
+								"1101"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ctaContable",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/ctaContable/1101000",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"ctaContable",
+								"1101000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoAsiento",
+			"item": [
+				{
+					"name": "tipoAsiento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"011\",  \r\n    \"nombre\":\"TASI\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoAsiento",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoAsiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipoAsiento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"nombre\":\"actualizando tipo asiento\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoAsiento/111",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoAsiento",
+								"111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipoAsiento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoAsiento",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoAsiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipoAsiento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoAsiento/011",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoAsiento",
+								"011"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TipoDocumento",
+			"item": [
+				{
+					"name": "tipoDocumento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"011\",  \r\n    \"nombre\":\"TASI\"\r\n}\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoDocumento",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoDocumento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipoDocumento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{    \r\n    \"nombre\":\"actualizando tipo asiento\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoDocumento/111",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoDocumento",
+								"111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipoDocumento",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoDocumento",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoDocumento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tipoDocumento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/tipoDocumento/011",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"tipoDocumento",
+								"011"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Configuracion",
+			"item": [
+				{
+					"name": "configuracion",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n        {\r\n            \"id\": \"CtaActivoCirculante\",\r\n            \"valor\": \"gcesg\"\r\n        },\r\n        {\r\n            \"id\": \"CtaActivoTotal\",\r\n            \"valor\": \"erfgcewr\"\r\n        },\r\n        {\r\n            \"id\": \"CtaCapital\",\r\n            \"valor\": \"rrrr\"\r\n        },\r\n        {\r\n            \"id\": \"CtaCostoVentas\",\r\n            \"valor\": \"erteter\"\r\n        },\r\n        {\r\n            \"id\": \"CtaInventario\",\r\n            \"valor\": \"errrrrree\"\r\n        },\r\n        {\r\n            \"id\": \"CtaPasivoLargoPlazo\",\r\n            \"valor\": \"\"\r\n        },\r\n        {\r\n            \"id\": \"CtaPasivoTotal\",\r\n            \"valor\": \"\"\r\n        },\r\n        {\r\n            \"id\": \"CtaUtilPerdida\",\r\n            \"valor\": \"\"\r\n        },\r\n        {\r\n            \"id\": \"CtaUtilPerdidaAcumulada\",\r\n            \"valor\": \"\"\r\n        },\r\n        {\r\n            \"id\": \"PerFecFin\",\r\n            \"valor\": \"\"\r\n        },\r\n        {\r\n            \"id\": \"PerFecInactividad\",\r\n            \"valor\": \"\"\r\n        },\r\n        {\r\n            \"id\": \"PerFecIni\",\r\n            \"valor\": \"2023-01-01\"\r\n        }\r\n    ]\r\n\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/configuracion",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"configuracion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "configuracion",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-token",
+								"value": "{{x-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:4000/api/configuracion/",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"configuracion",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
